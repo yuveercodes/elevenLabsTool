@@ -4,11 +4,11 @@ exports.handler = async function(event, context) {
   
     try {
       const response = await fetch(url);
-      const data = await response.json();
+      const data = await response.text();
   
       return {
         statusCode: 200,
-        body: JSON.stringify(data),
+        body: data,
       };
     } catch (error) {
       return {

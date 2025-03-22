@@ -10,8 +10,8 @@ export default (request, context) => {
         resp.on('end', () => {
             finalData = JSON.parse(data);
         })
-    })
-    return new Response(`${JSON.stringify(finalData)}`)
+    }).once("response", () => {return new Response(`${JSON.stringify(finalData)}`)})
+    
   } catch (error) {
     return new Response(error.toString(), {
       status: 500,

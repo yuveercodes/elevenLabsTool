@@ -11,7 +11,7 @@ export default (request, context) => {
             finalData = JSON.parse(data);
         })
     })
-    return new Response(`${finalData}`)
+    return new Response(`${JSON.stringify(finalData)}`)
   } catch (error) {
     return new Response(error.toString(), {
       status: 500,
